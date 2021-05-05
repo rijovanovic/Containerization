@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  labels:
+    app: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+        - name: db
+          image: olakspoccr.azurecr.io/ol-mysql:v2
+#          command: ["ping"]
+#          args: ["localhost", "-t"]
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+#            - mountPath: "c:\\connect\\dbdata"
+            - mountPath: "c:\\programdata\\objectif lune\\ol connect\\MySQL\\data"
+              name: db-data
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data-disk

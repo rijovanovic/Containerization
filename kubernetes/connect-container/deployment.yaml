@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connect-deployment
+  labels:
+    app: connect
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: connect
+  template:
+    metadata:
+      labels:
+        app: connect
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+        - name: connect
+          image: olakspoccr.azurecr.io/connect-transactional:v1
+          env:
+            - name: CONNECT_LICENSE_TEST_PRODUCT
+              value: "1"
+            - name: CONNECT_LICENSE_CODE
+              value: "492169039744657454"
+#          command: ["ping"]
+#          args: ["localhost", "-t"]
+          ports:
+            - containerPort: 9340
+          volumeMounts:
+#            - mountPath: "c:\\connect\\volume"
+#              name: connect-data
+            - mountPath: "c:\\users\\connectadmin\\Connect"
+              name: connect-data
+              subPath: Users
+            - mountPath: "c:\\programdata\\objectif lune\\ol connect"
+              name: connect-data
+              subPath: ProgramData
+      volumes:
+        - name: connect-data
+          persistentVolumeClaim:
+            claimName: connect-data-disk
