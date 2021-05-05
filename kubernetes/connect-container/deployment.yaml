@@ -37,7 +37,13 @@ spec:
             - mountPath: "c:\\programdata\\objectif lune\\ol connect"
               name: connect-data
               subPath: ProgramData
+            - mountPath: "C:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\secrets"
+              name: secrets
+              readOnly: true
       volumes:
         - name: connect-data
           persistentVolumeClaim:
             claimName: connect-data-disk
+        - name: secrets
+          secret:
+            secretName: connect-passwords
