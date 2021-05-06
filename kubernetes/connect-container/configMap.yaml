@@ -1,0 +1,13 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: connect-config-map 
+data:
+  CONNECT_LICENSE_TEST_PRODUCT: "1"
+  CONNECT_LICENSE_CODE: "492169039744657454"
+  com.objectiflune.scheduling.prefs: |
+    server.engine.setup.count.merge.engine=4
+    server.connections.master.port=1234
+  com.objectiflune.serverengine.preferences.prefs: |
+    server.security.session.timeout=59
+  

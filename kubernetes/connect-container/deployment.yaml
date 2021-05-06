@@ -18,12 +18,18 @@ spec:
         "beta.kubernetes.io/os": windows
       containers:
         - name: connect
-          image: olakspoccr.azurecr.io/connect-transactional:v1
+          image: olakspoccr.azurecr.io/connect:2021.1.prefs
           env:
             - name: CONNECT_LICENSE_TEST_PRODUCT
-              value: "1"
+              valueFrom:
+                configMapKeyRef:
+                  name: connect-config-map
+                  key: CONNECT_LICENSE_TEST_PRODUCT
             - name: CONNECT_LICENSE_CODE
-              value: "492169039744657454"
+              valueFrom:
+                configMapKeyRef:
+                  name: connect-config-map
+                  key: CONNECT_LICENSE_CODE
 #          command: ["ping"]
 #          args: ["localhost", "-t"]
           ports:
@@ -40,6 +46,8 @@ spec:
             - mountPath: "C:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\secrets"
               name: secrets
               readOnly: true
+            - mountPath: "C:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\preferences"
+              name: config-map
       volumes:
         - name: connect-data
           persistentVolumeClaim:
@@ -47,3 +55,6 @@ spec:
         - name: secrets
           secret:
             secretName: connect-passwords
+        - name: config-map
+          configMap:
+            name: connect-config-map
