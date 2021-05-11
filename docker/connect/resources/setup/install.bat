@@ -10,8 +10,18 @@ if errorlevel 2 goto err_unknown
 if errorlevel 1 goto err_preinstall
 
 echo Connect installed successfully. Wait for docker to finish...
+
+REM To make sure the cldsvc service is gracefully stopped we stop it here
+net stop olconnect_server
+net stop cldsvc
+REM Zentitle working folder content needs to be cleaned up to be initialized
+REM properly when a container is run.
+del /q "C:\ProgramData\Objectif Lune\OL Connect\CloudLicense\*"
+
+REM In a container we want to start the service manually
 sc config olconnect_server start=demand
 sc config cldsvc start=demand
+
 goto:eof
 
 :err_installer
