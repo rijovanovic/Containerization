@@ -35,8 +35,6 @@ spec:
           ports:
             - containerPort: 9340
           volumeMounts:
-#            - mountPath: "c:\\connect\\volume"
-#              name: connect-data
             - mountPath: "c:\\users\\connectadmin\\Connect"
               name: connect-data
               subPath: Users
@@ -48,6 +46,8 @@ spec:
               readOnly: true
             - mountPath: "C:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\preferences"
               name: config-map
+#            - mountPath: "c:\\connect\\volume"
+#              name: connect-data
       volumes:
         - name: connect-data
           persistentVolumeClaim:

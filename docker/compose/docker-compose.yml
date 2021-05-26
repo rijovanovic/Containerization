@@ -10,8 +10,7 @@ services:
       - "db:c:\\ProgramData\\Objectif Lune\\OL Connect\\MySQL\\data"
 
   connect:
-    image: connect-transactional:v1
-#    image: connect:2020.2.1
+    image: connect:latest
     environment:
       CONNECT_LICENSE_TEST_PRODUCT: 1
       CONNECT_LICENSE_CODE: 492169039744657454
@@ -20,12 +19,10 @@ services:
     depends_on:
       - db
     volumes:
-      - connect-data:c:\users\connectadmin\Connect
+      - "connect-data:c:\\users\\connectadmin\\Connect"
       - "connect-prefs:c:\\ProgramData\\Objectif Lune\\OL Connect"
-#      - connect-hidden:c:\ProgramData\F5C3S4
-#      - connect-hidden:c:\Connect\F5C3S4
-#      - "./users:c:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization"
-#      - connect-prefs:c:\prefs
+      - ".\\prefs:c:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\Preferences"
+      - ".\\secrets:c:\\ProgramData\\Objectif Lune\\OL Connect\\Initialization\\Secrets"
 
 volumes:
   db:
