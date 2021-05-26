@@ -12,7 +12,8 @@ if errorlevel 1 goto err_preinstall
 echo Connect installed successfully. Wait for docker to finish...
 
 REM To make sure the cldsvc service is gracefully stopped we stop it here
-net stop olconnect_server
+REM No need to stop connect server service, it is not runnnig and will therefore give an error
+REM net stop olconnect_server
 net stop cldsvc
 REM Zentitle working folder content needs to be cleaned up to be initialized
 REM properly when a container is run.
