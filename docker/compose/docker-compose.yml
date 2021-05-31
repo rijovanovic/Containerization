@@ -3,14 +3,14 @@ version: '3.1'
 services:
 
   db:
-    image: ol-mysql:v2
+    image: olakspoccr.azurecr.io/ol-mysql:v2
     ports:
       - 3306:3306
     volumes:
       - "db:c:\\ProgramData\\Objectif Lune\\OL Connect\\MySQL\\data"
 
   connect:
-    image: connect:latest
+    image: olakspoccr.azurecr.io/connect:latest
     environment:
       CONNECT_LICENSE_TEST_PRODUCT: 1
       CONNECT_LICENSE_CODE: 492169039744657454
