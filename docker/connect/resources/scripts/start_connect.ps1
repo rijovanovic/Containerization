@@ -21,6 +21,9 @@ if ($Env:CONNECT_LICENSE_TEST_PRODUCT) {
     Copy-Item "C:\connect\scripts\ShaferFilechck.DLL" -Destination $destinationPath
 }
 
+# Start our license service to ensure it is running
+net start cldsvc
+
 if ($Env:CONNECT_LICENSE_CODE) {
     $Command = "&`"C:\Program Files\Common Files\Objectif Lune\Licensing\cldctl.exe`" retrieveLicense " + $Env:CONNECT_LICENSE_CODE
     Invoke-Expression $Command
