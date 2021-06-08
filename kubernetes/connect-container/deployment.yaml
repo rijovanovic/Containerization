@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: connect
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -18,7 +20,7 @@ spec:
         "beta.kubernetes.io/os": windows
       containers:
         - name: connect
-          image: olakspoccr.azurecr.io/connect:2021.1.prefs
+          image: olakspoccr.azurecr.io/connect:latest
           env:
             - name: CONNECT_LICENSE_TEST_PRODUCT
               valueFrom:
