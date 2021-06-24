@@ -10,7 +10,7 @@ services:
       - "db:c:\\ProgramData\\Objectif Lune\\OL Connect\\MySQL\\data"
 
   connect:
-    image: olakspoccr.azurecr.io/connect:latest
+    image: connect:azure-logs
     environment:
       CONNECT_LICENSE_TEST_PRODUCT: 1
       CONNECT_LICENSE_CODE: 492169039744657454

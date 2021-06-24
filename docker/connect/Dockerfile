@@ -7,6 +7,9 @@ COPY ["resources/azure-logs", "C:/"]
 # Setup admin user account
 RUN net user /add ConnectAdmin
 RUN net localgroup Administrators ConnectAdmin /add
+RUN net localgroup "Performance Monitor Users" ConnectAdmin /add
+RUN net localgroup "Performance Log Users" ConnectAdmin /add
+
 USER ConnectAdmin
 RUN powershell c:\connect\scripts\set_password.ps1
 

@@ -1,4 +1,4 @@
-$dockerImageName = "connect:latest"
+$dockerImageName = "connect:azure-logs"
 
 # This script will automatically create a docker image from the Connect iso file in this folder
 # You must execute this PS script from the same directory the script is located as it uses relative paths
