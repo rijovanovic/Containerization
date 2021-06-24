@@ -1,0 +1,6 @@
+{
+    "connectionString": "InstrumentationKey=f2e536bc-0d57-4d37-903f-d4c279d88beb;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/",
+    "role": {
+      "name": "Weaver Engine Container"
+    }
+  }
