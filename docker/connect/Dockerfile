@@ -21,7 +21,7 @@ WORKDIR /connect
 
 RUN powershell c:\connect\scripts\backup.ps1
 
-RUN powershell c:\connect\scripts\azure-logs.ps1
+RUN powershell c:\connect\azure-logs\azure-logs.ps1
 
 # Delete setup files
 #RUN powershell Remove-Item C:\\connect\\setup -Force  -Recurse -ErrorAction SilentlyContinue
