@@ -20,7 +20,7 @@ spec:
         "beta.kubernetes.io/os": windows
       containers:
         - name: connect
-          image: olakspoccr.azurecr.io/connect:latest
+          image: olakspoccr.azurecr.io/connect:azure-logs
           env:
             - name: CONNECT_LICENSE_TEST_PRODUCT
               valueFrom:
