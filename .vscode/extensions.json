@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "ms-vscode.azure-account",
+        "ms-kubernetes-tools.vscode-aks-tools",
+        "ms-azuretools.vscode-docker"
+    ]
+}
