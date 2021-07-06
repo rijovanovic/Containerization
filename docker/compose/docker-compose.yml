@@ -18,6 +18,13 @@ services:
       - 9340:9340
     depends_on:
       - db
+    deploy:
+      resources:
+        # The following limits seem to be also used as the default sizes in windows containers
+        # If you don't specify a limit with docker desktop you will get 1GB as the default memory size causing all the engines to run in a single process
+        # It seems that if you go lower than 8GB you will get out of memory errors, all depends also on how many engines you run
+        limits:
+          memory: 8GB
     volumes:
       - "connect-data:c:\\users\\connectadmin\\Connect"
       - "connect-prefs:c:\\ProgramData\\Objectif Lune\\OL Connect"
