@@ -1,0 +1,35 @@
+# Preferences for the database connection
+
+# In a container environment you will want to set the db.password field not through this file because in this file the value must be encrypted.
+# You should set it through the db.password file in the secrets folder where you can put the password in clear text.
+
+db.vendor=MySQL
+db.host=db
+db.port=3306
+db.username=root
+#db.password=(if used should be set through a db.password file in the secrets folder)
+db.schema=objectiflune
+db.query.params=useUnicode\=true&rewriteBatchedStatements\=true&allowPublicKeyRetrieval\=true&connectionCollation\=utf8mb4_unicode_ci&serverTimezone\=Europe/Berlin&characterEncoding\=utf8&sslMode\=PREFERRED
+
+
+# Database detail settings			
+
+#db.initial.size=1
+#db.lifo=true
+#db.max.conn.lifetime.millis=-1
+#db.min.idle=1
+#db.max.idle=4
+#db.max.pool.connections=48
+#db.max.threads=12
+#db.max.wait.millis=60000
+#db.time.between.eviction.runs.millis=60000
+#db.soft.min.evictable.idle.time.millis=-1
+#db.min.evictable.idle.time.millis=10000
+#db.num.tests.per.eviction.run=3
+#db.remove.abandoned.on.borrow=false
+#db.remove.abandoned.on.maintenance=false
+#db.remove.abandoned.timeout=300
+#db.test.on.borrow=false
+#db.test.on.create=false
+#db.test.on.return=false
+#db.test.while.idle=true

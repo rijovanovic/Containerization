@@ -1,1 +1,30 @@
-server.security.session.timeout=59
+# Server Engine preferences
+
+# In a container environment you will want to set the server.security.password field not through this file because in this file the value must be encrypted.
+# You should set it through the server.security.password file in the secrets folder where you can put the password in clear text.
+# Note that this value is used for the default rest user password but it is only used when the database schema is empty and is initialized. After that is done the settings
+# is not read from the preferences anymore, the hashed value from the database table is used directly. Same applies to the server.security.username value, except that
+# one is not encrypted in this file.
+
+server.primary.port=9340
+server.primary.protocol=http
+
+#server.primary.rootCertificate=
+#server.primary.certificate=
+#server.primary.privateKey=
+#server.primary.privateKeyPassword= (if used should be set through a server.primary.privateKeyPassword file in the secrets folder)
+#server.primary.maxAsyncJobs=24
+#server.primary.maxQueue=500
+#server.primary.maxThreads=250
+
+server.security.enabled=true
+server.security.session.timeout=60
+server.security.username=cloud-user
+server.security.password= (if used should be set through a server.security.password file in the secrets folder, also see comment at the top)
+
+server.internal.ports.enabled=true
+server.internal.ipc.port=9350
+#server.internal.ipc.protocol=http
+server.internal.rest.port=9360
+#server.internal.rest.protocol=http
+
