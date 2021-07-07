@@ -1,1 +1,63 @@
+# Scheduling Preferences
+
+# Engine setup			
+server.engine.setup.task.handler=task.handler.engines
+# Alternate choice for task handler			
+#server.engine.setup.task.handler=task.handler.server
+
+server.engine.setup.count.datamapper.engine=1
 server.engine.setup.count.merge.engine=2
+server.engine.setup.count.weaver.engine=1
+server.engine.setup.maximum.data.converter=2
+server.engine.setup.memory.size.datamapper.engine=640
+server.engine.setup.memory.size.merge.engine=640
+server.engine.setup.memory.size.weaver.engine=640
+#server.engine.setup.timeout.minutes.datamapper.engine=-1
+#server.engine.setup.timeout.minutes.merge.engine=-1
+#server.engine.setup.timeout.minutes.weaver.engine=-1
+#server.output.multithreaded.reading=true
+#server.output.multithreaded.formrip=1
+			
+# Automatic engine restart 			
+server.automatic.restarts.time.limit=true
+server.automatic.restarts.rolling.restart=true
+server.automatic.restarts.restart.method=restart.method.interval
+server.automatic.restarts.restart.interval.minutes=480
+#server.automatic.restarts.restart.method=restart.method.daily
+#server.automatic.restarts.restart.daily.start.time=22:00
+#server.automatic.restarts.restart.daily.stop.time=04:00
+#server.automatic.restarts.memory.limit.datamapper.engine=false
+#server.automatic.restarts.memory.limit.merge.engine=false
+#server.automatic.restarts.memory.limit.weaver.engine=false
+#server.automatic.restarts.memory.limit.size.datamapper.engine=1536
+#server.automatic.restarts.memory.limit.size.merge.engine=1280
+#server.automatic.restarts.memory.limit.size.weaver.engine=1280
+			
+# Parallel processing			
+server.scheduling.preset=scheduling.preset.default
+# other available presets, choose "custom" to use detailed settings			
+#server.scheduling.preset=scheduling.preset.batch
+#server.scheduling.preset=scheduling.preset.ondemand
+#server.scheduling.preset=scheduling.preset.ondemandprint
+#server.scheduling.preset=scheduling.preset.olcs
+#server.scheduling.preset=scheduling.preset.cotg
+#server.scheduling.preset=scheduling.preset.custom
+			
+# Parallel processing - content creation			
+server.content.creation.multitasking.add.engine.every.records=100
+server.content.creation.multitasking.mode=multitasking.mode.optimize.task
+#server.content.creation.multitasking.mode=multitasking.mode.optimize.simultaneous
+server.content.creation.ondemand.tasks.reserve.engines=false
+server.content.creation.ondemand.tasks.size.limit.records=1
+#server.content.creation.ondemand.tasks.reserved.engines.email=0
+#server.content.creation.ondemand.tasks.reserved.engines.print=0
+#server.content.creation.ondemand.tasks.reserved.engines.web=0
+			
+# Parallel processing - output creation			
+server.output.creation.job.size.small.maximum=10
+server.output.creation.job.size.large.minimum=1000
+#server.output.creation.reserved.engines.small=0
+#server.output.creation.reserved.engines.medium=0
+#server.output.creation.target.speed.small=10000
+#server.output.creation.target.speed.medium=10000
+#server.output.creation.target.speed.large=10000

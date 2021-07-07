@@ -1,0 +1,35 @@
+# Cleanup Service Preferences
+
+# Cleanup service			
+#cleanup.managed.by=Server
+cleanup.enabled=true
+cleanup.startup=true
+cleanup.cron.schedule=0 50 * * * ?
+
+# Database cleanup			
+cleanup.database.enabled=true
+cleanup.dataset.numeric=1
+cleanup.dataset.unit=DAY
+cleanup.contentset.numeric=1
+cleanup.contentset.unit=DAY
+cleanup.jobset.numeric=1
+cleanup.jobset.unit=DAY
+cleanup.managed.file.numeric=1
+cleanup.managed.file.unit=DAY
+cleanup.orphaned.entity.numeric=8
+cleanup.orphaned.entity.unit=HOUR
+
+# File cleanup			
+cleanup.orphaned.file.enabled=true
+cleanup.orphaned.file.numeric=8
+cleanup.orphaned.file.unit=HOUR
+
+# Database partitioning			
+cleanup.partitions.use=true
+cleanup.partitions.buffer.count=24
+cleanup.partitions.size.numeric=1
+cleanup.partitions.size.unit=HOUR
+
+# Cleanup performance			
+cleanup.performance.deletion.batch_size=1000
+cleanup.performance.deletion.threads=4
