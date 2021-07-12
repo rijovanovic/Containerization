@@ -25,10 +25,10 @@ cleanup.orphaned.file.numeric=8
 cleanup.orphaned.file.unit=HOUR
 
 # Database partitioning			
-cleanup.partitions.use=true
-cleanup.partitions.buffer.count=24
-cleanup.partitions.size.numeric=1
-cleanup.partitions.size.unit=HOUR
+#cleanup.partitions.use=true
+#cleanup.partitions.buffer.count=24
+#cleanup.partitions.size.numeric=1
+#cleanup.partitions.size.unit=HOUR
 
 # Cleanup performance			
 cleanup.performance.deletion.batch_size=1000
