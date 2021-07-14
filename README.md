@@ -3,7 +3,7 @@
 This repository holds files to create and use the Connect and OL MySQL container through docker, docker-compose or in a Kubernetes environment.
 
 ## Prerequisistes
-You have access to the azure portal https://portal.azure.com and to the *olcloud* organization / subscription / tenant. You should have received an invite by email, you need to accept that invitation and follow the directions.
+You have access to the [azure portal](https://portal.azure.com) and to the *olcloud* organization / subscription / tenant. You should have received an invite by email, you need to accept that invitation and follow the directions.
 
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 >After installation make sure that Docker Desktop is running in Windows mode and not in Linux mode. If you right click on the Docker icon in the system tray you will see a context menu. If there is a menu item *Switch to Windows containers...* then you have to click that. If the menu item says *Switch to Linux containers...* you are already in Windows mode.
@@ -25,7 +25,7 @@ The easiest way to get everything up and running is using docker compose. Make s
 
 This will pull the *connect* and *ol-mysql* container from our container registry in Azure and start hem both and will create the docker volumes. When the container is started it can take some time before Connect is fully started and the database is initialized and you can access the REST API.
 
-Once Connect is started you should be able to view the cookbook by going to this URL: http://localhost:9340/serverengine/html/cookbook/index.html
+Once Connect is started you should be able to view the cookbook by going to this URL: [http://localhost:9340/serverengine/html/cookbook/index.html](http://localhost:9340/serverengine/html/cookbook/index.html)
 
 The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhTYzxm`
 
