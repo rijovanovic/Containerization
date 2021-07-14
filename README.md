@@ -29,4 +29,4 @@ Once Connect is started you should be able to view the cookbook by going to this
 
 The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhTYzxm`
 
-You can inspect the log files of Connect by looking at the files in the volume. If you use Docker Desktop and the steps above the default location would be *C:\ProgramData\Docker\volumes\compose_connect-data\_data\logs*
+You can inspect the log files of Connect by looking at the files in the volume. If you use Docker Desktop and the steps above the default location would be `C:\ProgramData\Docker\volumes\compose_connect-data\_data\logs`
