@@ -2,6 +2,10 @@
 
 This repository holds files to create and use the Connect and OL MySQL container through docker, docker-compose or in a Kubernetes environment.
 
+## Support
+
+If you have any questions or need support the best place to go to is the Teams-Docker -> [General](https://teams.microsoft.com/l/channel/19%3a79da951ed9ad464598d9bdfd7872dd74%40thread.skype/General?groupId=2178f7bc-919e-41a5-a676-f8ba9ac36761&tenantId=f95d2a62-45c4-4406-b95f-9685a3ab37b0) channel and post your question there.
+
 # Running Connect Containers Locally
 ## Prerequisistes
 You have access to the [azure portal](https://portal.azure.com) and to the *olcloud* organization / subscription / tenant. You should have received an invite by email, you need to accept that invitation and follow the directions.
