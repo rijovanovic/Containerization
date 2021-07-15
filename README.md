@@ -83,7 +83,7 @@ Step by step:
 * Open a PowerShell terminal and go to the `docker\connect` folder
 * Execute the `docker\connect\build-image-from-iso.ps1` script
 
-This will extract the ISO, extracts the silent setup files and also run docker build to create the image locally.
+This will extract the ISO, extracts the silent setup files and also run docker build to create the image locally. 
 
 There are files in the `docker\connect\image\resources` folder that are used during this process to configure the silent setup and also the container.
 
