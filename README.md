@@ -6,6 +6,10 @@ This repository holds files to create and use the Connect and OL MySQL container
 
 If you have any questions or need support the best place to go to is the Teams-Docker -> [General](https://teams.microsoft.com/l/channel/19%3a79da951ed9ad464598d9bdfd7872dd74%40thread.skype/General?groupId=2178f7bc-919e-41a5-a676-f8ba9ac36761&tenantId=f95d2a62-45c4-4406-b95f-9685a3ab37b0) channel and post your question there.
 
+## Downloading files
+
+You can use any git client to clone this repository to get the files on your local machine. If you are on the Bitbucket site you can also use the top right ... menu button and select Download to download the repository.
+
 # Running Connect Containers Locally
 ## Prerequisistes
 You have access to the [azure portal](https://portal.azure.com) and to the *olcloud* organization / subscription / tenant. You should have received an invite by email, you need to accept that invitation and follow the directions.
@@ -53,8 +57,6 @@ By default docker desktop stores volumes on the host in this location: `C:\Progr
 
 ## License
 The `docker\compose\docker-compose.yml` file and the Kubernetes config files will automatically use a transactional license (Nalpeiron) in Connect. This licenses uses the test product in Nalpeiron. This license code can be used for testing by multiple people at the same time. If you want to try a different license code you can change the configuration files.
-
-You might run into an issue where token consumption by the Weaver engine occasionally gives an error. That is a known issue, there is a Jira ticket for that: [SHARED-82839](https://jira.ca.objectiflune.com/browse/SHARED-82839)
 
 ## Overriding preferences
 To set specific preferences for the Connect container you can edit the preference files in the `docker\compose\prefs` folder. There are some sample files with comments in that folder. Note that these files will be read at startup of Connect and will override any preference with the same key name that exists in the normal preference file location.
