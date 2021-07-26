@@ -67,7 +67,10 @@ The docker compose configuration will automatically start two containers. One is
 Currently the OL MySQL Windows container uses a hardcoded `root` user and the password `XOkgmXxfXFEsdNUOl43!`
 
 ## Connect Version
-The alpha version of the container is based on build [35](https://leonard.ca.objectiflune.com/job/cg/job/prod_connect/job/develop/35/) from the develop branch. So it contains evertyhing from 2021.1 but also some tickets of 2021.2.
+The alpha version of the container is based on PReS Connect version 2021.1.2
+
+## Fonts
+The operating system in the container contains only 1 default font. For your template to work correctly you need to [import the font](https://help.objectiflune.com/en/planetpress-connect-user-guide/2021.1/#designer/Styling_Formatting/Fonts.htm#toc-1) into the template.
 
 ## Memory Limits
 Docker Desktop will run Windows containers using Hyper-V isolation. It will give each container only 1 GB and 2 vCPUs. The docker compose file has a memory setting that increases this to 8 GB.
