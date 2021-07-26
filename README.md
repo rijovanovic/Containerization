@@ -46,12 +46,12 @@ The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhT
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
 
 The docker compose configuration will create three volumes:
-- db 
-    - Mounted in the MySQL container into `c:\ProgramData\Objectif Lune\OL Connect\MySQL\data`
-- connect-data
-    - Mounted in the Connect container into `c:\Users\connectadmin\Connect`
-- connect-prefs
-    - Mounted in the Connect container into `c:\ProgramData\Objectif Lune\OL Connect`
+* db 
+    * Mounted in the MySQL container into `c:\ProgramData\Objectif Lune\OL Connect\MySQL\data`
+* connect-data
+    * Mounted in the Connect container into `c:\Users\connectadmin\Connect`
+* connect-prefs
+    * Mounted in the Connect container into `c:\ProgramData\Objectif Lune\OL Connect`
 
 By default docker desktop stores volumes on the host in this location: `C:\ProgramData\Docker\volumes` which makes it easy to inspect any of the files in the volumes on the host. For example if you want to take a look at the log files of Connect Server and the engines they are located in the `C:\ProgramData\Docker\volumes\compose_connect-data\_data\logs` folder.
 
@@ -67,7 +67,7 @@ The docker compose configuration will automatically start two containers. One is
 Currently the OL MySQL Windows container uses a hardcoded `root` user and the password `XOkgmXxfXFEsdNUOl43!`
 
 ## Connect Version
-The alpha version of the container is based on PReS Connect version 2021.1.2
+The alpha version of the container is based on build [74](https://leonard.ca.objectiflune.com/job/cg/job/prod_connect/job/develop/74/) from the develop branch. So it contains everything from 2021.1.2 but also some tickets of 2021.2.
 
 ## Fonts
 The operating system in the container contains only one default font. For your template to work correctly you need to [import the font](https://help.objectiflune.com/en/planetpress-connect-user-guide/2021.1/#designer/Styling_Formatting/Fonts.htm#toc-1) into the template.
@@ -91,6 +91,8 @@ Step by step:
 This will extract the ISO, extracts the silent setup files and also run docker build to create the image locally. 
 
 There are files in the `docker\connect\image\resources` folder that are used during this process to configure the silent setup and also the container.
+
+You might experience "Path not found" errors depending on how long the path is of your local workspace. I'm still investigating this issue.
 
 # Kubernetes
 On Kubernetes you have different tools to do the job that docker-compose does in a local environment. The `kubernetes` folder hold these configuration files. We have so far used these only on the Azure Kubernetes Service.
