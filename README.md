@@ -29,7 +29,7 @@ Execute the following commands on the command prompt:
 `az acr login --name olakspoccr`
 >This will log you into the azure container registry. If you get any permission errors here IT might first have to give you pull (read) rights on the repository.
 
-The steps above are only necessary once. You might have to do the login commands later again but typically that is only necessary once in a couple of weeks.
+The steps above are only necessary once. You might have to do the login commands later again but typically that is only necessary once every couple of weeks.
 
 ## Getting Started
 The easiest way to get everything up and running locally is to use docker compose. Make sure that on your host the port for MySQL (3306) and Connect (9340) are not in use, you might have to stop those services. Open a command prompt or PowerShell and go the `docker\compose` folder of this repository, then type:
@@ -46,12 +46,12 @@ The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhT
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
 
 The docker compose configuration will create three volumes:
-* db 
-  * Mounted in the MySQL container into `c:\ProgramData\Objectif Lune\OL Connect\MySQL\data`
-* connect-data
-  * Mounted in the Connect container into `c:\Users\connectadmin\Connect`
-* connect-prefs
-  * Mounted in the Connect container into `c:\ProgramData\Objectif Lune\OL Connect`
+- db 
+    - Mounted in the MySQL container into `c:\ProgramData\Objectif Lune\OL Connect\MySQL\data`
+- connect-data
+    - Mounted in the Connect container into `c:\Users\connectadmin\Connect`
+- connect-prefs
+    - Mounted in the Connect container into `c:\ProgramData\Objectif Lune\OL Connect`
 
 By default docker desktop stores volumes on the host in this location: `C:\ProgramData\Docker\volumes` which makes it easy to inspect any of the files in the volumes on the host. For example if you want to take a look at the log files of Connect Server and the engines they are located in the `C:\ProgramData\Docker\volumes\compose_connect-data\_data\logs` folder.
 
@@ -70,7 +70,7 @@ Currently the OL MySQL Windows container uses a hardcoded `root` user and the pa
 The alpha version of the container is based on PReS Connect version 2021.1.2
 
 ## Fonts
-The operating system in the container contains only 1 default font. For your template to work correctly you need to [import the font](https://help.objectiflune.com/en/planetpress-connect-user-guide/2021.1/#designer/Styling_Formatting/Fonts.htm#toc-1) into the template.
+The operating system in the container contains only one default font. For your template to work correctly you need to [import the font](https://help.objectiflune.com/en/planetpress-connect-user-guide/2021.1/#designer/Styling_Formatting/Fonts.htm#toc-1) into the template.
 
 ## Memory Limits
 Docker Desktop will run Windows containers using Hyper-V isolation. It will give each container only 1 GB and 2 vCPUs. The docker compose file has a memory setting that increases this to 8 GB.
