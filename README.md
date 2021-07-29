@@ -46,6 +46,7 @@ The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhT
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
 
 The docker compose configuration will create three volumes:
+
 * db 
     * Mounted in the MySQL container into `c:\ProgramData\Objectif Lune\OL Connect\MySQL\data`
 * connect-data
@@ -92,7 +93,7 @@ This will extract the ISO, extracts the silent setup files and also run docker b
 
 There are files in the `docker\connect\image\resources` folder that are used during this process to configure the silent setup and also the container.
 
-You might experience "Path not found" errors depending on how long the path is of your local workspace. I'm still investigating this issue.
+You might experience a dialog popping up with "System cannot find the path specified" error. This error is shown while the script tries to extract the files from the self extracting archive (PReS_Connect_Setup_x86_64.exe). Unfortunately longs paths are not supported by the self extracting archive. The only way to resolve this is by making that path shorter where you cloned this git repository, for exampling placing it in c:\containerization.
 
 # Kubernetes
 On Kubernetes you have different tools to do the job that docker-compose does in a local environment. The `kubernetes` folder hold these configuration files. We have so far used these only on the Azure Kubernetes Service.
