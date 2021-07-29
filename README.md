@@ -85,6 +85,7 @@ These extensions add a Docker button to the left sidebar. In that view you can e
 You can also use this repository to build a Connect container docker image from a Connect Setup ISO file.
 
 Step by step:
+
 * Copy the iso file into the `docker\connect` folder
 * Open a PowerShell terminal and go to the `docker\connect` folder
 * Execute the `docker\connect\build-image-from-iso.ps1` script
@@ -92,6 +93,8 @@ Step by step:
 This will extract the ISO, extracts the silent setup files and also run docker build to create the image locally. 
 
 There are files in the `docker\connect\image\resources` folder that are used during this process to configure the silent setup and also the container.
+
+You should check for errors in the terminal. Because the process will continue creating the image even if there are errors but the image will probably not work in that case.
 
 You might experience a dialog popping up with "System cannot find the path specified" error. This error is shown while the script tries to extract the files from the self extracting archive (PReS_Connect_Setup_x86_64.exe). Unfortunately longs paths are not supported by the self extracting archive. The only way to resolve this is by making that path shorter where you cloned this git repository, for exampling placing it in c:\containerization.
 
