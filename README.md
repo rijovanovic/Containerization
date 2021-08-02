@@ -16,7 +16,7 @@ You have access to the [azure portal](https://portal.azure.com) and to the *olcl
 
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop) in a VM or on your physical machine. In both cases the minimum Windows 10 version is Pro or Enterprise and 2004/20H1 or higher.
 
->Note that if you also use VMWare on your physical machine there are some limitations when you install Docker Desktop not in a VM, see [this article](https://objlune.sharepoint.com/sites/TEAM-TECHNICAL-CONTACT/_layouts/OneNote.aspx?id=%2Fsites%2FTEAM-TECHNICAL-CONTACT%2FShared%20Documents%2FTeam%20Technical%20Contact&wd=target%28Knowledge%20Base%2FContainers.one%7C03CC98BD-8B05-410B-BB45-FAB5DA9F5E9B%2FDocker%20Desktop%20%26%20VMWare%7C12BA1677-45D3-4F47-B00D-49DEE84EC387%2F%29) for more details. If you are not sure you can install Docker Desktop in a VM that is the safest option. The VM should have at least 8 GB of memory and a 80 GB hard disk size. In VMWare in the *Settings -> Processors* section of the VM enable the *Virtualize Intel VT-x/EPT or AMD-V/RVI* setting.
+>Note that if you also use VMWare on your physical machine there are some limitations when you install Docker Desktop not in a VM, see [this article](https://objlune.sharepoint.com/sites/TEAM-TECHNICAL-CONTACT/_layouts/OneNote.aspx?id=%2Fsites%2FTEAM-TECHNICAL-CONTACT%2FShared%20Documents%2FTeam%20Technical%20Contact&wd=target%28Knowledge%20Base%2FContainers.one%7C03CC98BD-8B05-410B-BB45-FAB5DA9F5E9B%2FDocker%20Desktop%20%26%20VMWare%7C12BA1677-45D3-4F47-B00D-49DEE84EC387%2F%29) for more details. If you are not sure you can install Docker Desktop in a VM that is the safest option. The VM should have at least 10 GB of memory and a 80 GB hard disk size. In VMWare in the *Settings -> Processors* section of the VM enable the *Virtualize Intel VT-x/EPT or AMD-V/RVI* setting.
 
 > Docker Desktop requires the Windows Features Hyper-V and containers to be turned on. You can do this by opening a Admin PowerShell and execute this command: `Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V","Containers") -All` a restart is required
 
@@ -46,6 +46,10 @@ This will pull the *connect* and *ol-mysql* container from our container registr
 Once Connect is started you should be able to view the cookbook by going to this URL: [http://localhost:9340/serverengine/html/cookbook/index.html](http://localhost:9340/serverengine/html/cookbook/index.html)
 
 The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhTYzxm`
+
+To shutdown the container press CTRL+C in the command prompt and it will do a docker-compose down.
+
+If you get errors about the network when you do a docker-compose up you might have to a `docker-compose down` first.
 
 ## Inspecting volumes and log files
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
