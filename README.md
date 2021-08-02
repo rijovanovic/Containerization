@@ -14,8 +14,13 @@ You can use any git client to clone this repository to get the files on your loc
 ## Prerequisistes
 You have access to the [azure portal](https://portal.azure.com) and to the *olcloud* organization / subscription / tenant. You should have received an invite by email, you need to accept that invitation and follow the directions.
 
-Install [Docker Desktop](https://www.docker.com/products/docker-desktop) in a VM or on your physical machine
->Note that if you also use VMWare on your physical machine there are some limitations when you install Docker Desktop not in a VM, see [this article](https://objlune.sharepoint.com/sites/TEAM-TECHNICAL-CONTACT/_layouts/OneNote.aspx?id=%2Fsites%2FTEAM-TECHNICAL-CONTACT%2FShared%20Documents%2FTeam%20Technical%20Contact&wd=target%28Knowledge%20Base%2FContainers.one%7C03CC98BD-8B05-410B-BB45-FAB5DA9F5E9B%2FDocker%20Desktop%20%26%20VMWare%7C12BA1677-45D3-4F47-B00D-49DEE84EC387%2F%29) for more details. If you are not sure you can install Docker Desktop in a VM that is the safest option, be sure to give the VM enough memory (8 GB minimum).
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop) in a VM or on your physical machine. In both cases the minimum Windows 10 version is Pro or Enterprise and 2004/20H1 or higher.
+
+>Note that if you also use VMWare on your physical machine there are some limitations when you install Docker Desktop not in a VM, see [this article](https://objlune.sharepoint.com/sites/TEAM-TECHNICAL-CONTACT/_layouts/OneNote.aspx?id=%2Fsites%2FTEAM-TECHNICAL-CONTACT%2FShared%20Documents%2FTeam%20Technical%20Contact&wd=target%28Knowledge%20Base%2FContainers.one%7C03CC98BD-8B05-410B-BB45-FAB5DA9F5E9B%2FDocker%20Desktop%20%26%20VMWare%7C12BA1677-45D3-4F47-B00D-49DEE84EC387%2F%29) for more details. If you are not sure you can install Docker Desktop in a VM that is the safest option. The VM should have at least 8 GB of memory and a 80 GB hard disk size. In VMWare in the *Settings -> Processors* section of the VM enable the *Virtualize Intel VT-x/EPT or AMD-V/RVI* setting.
+
+> Docker Desktop requires the Windows Features Hyper-V and containers to be turned on. You can do this by opening a Admin PowerShell and execute this command: `Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V","Containers") -All` a restart is required
+
+> During the installation of Docker Desktop it will by default install the Windows WSL 2 feature to run Linux containers. You can use that but you can also use Hyper-V to run Linux containers. If you install WSL 2 you will get an error that you must still install the Linux kernel update package. If you don't install WSL 2 you will get an error and should click continue and the click the *Use Hyper-V* button to let Linux containers run in Hyper-V. Connect containers are Windows containers so this setting is not relevant to that but you might also want to run a Node-RED container which is a linux container. The easier option is probably to not install WSL 2.
 
 >After installation make sure that Docker Desktop is running in Windows mode and not in Linux mode. If you right click on the Docker icon in the system tray you will see a context menu. If there is a menu item *Switch to Windows containers...* then you have to click that. If the menu item says *Switch to Linux containers...* you are already in Windows mode.
 
@@ -57,7 +62,7 @@ The docker compose configuration will create three volumes:
 By default docker desktop stores volumes on the host in this location: `C:\ProgramData\Docker\volumes` which makes it easy to inspect any of the files in the volumes on the host. For example if you want to take a look at the log files of Connect Server and the engines they are located in the `C:\ProgramData\Docker\volumes\compose_connect-data\_data\logs` folder.
 
 ## License
-The `docker\compose\docker-compose.yml` file and the Kubernetes config files will automatically use a transactional license (Nalpeiron) in Connect. This licenses uses the test product in Nalpeiron. This license code can be used for testing by multiple people at the same time. If you want to try a different license code you can change the configuration files.
+The `docker\compose\docker-compose.yml` file and the Kubernetes config files will automatically use a transactional license (Nalpeiron) in Connect. This licenses uses the test product in Nalpeiron. This license code can be used for testing by multiple people at the same time. If you want to try a different license code you can change the configuration files and a restart of the container is necessary.
 
 ## Overriding preferences
 To set specific preferences for the Connect container you can edit the preference files in the `docker\compose\prefs` folder. There are some sample files with comments in that folder. Note that these files will be read at startup of Connect and will override any preference with the same key name that exists in the normal preference file location.
@@ -97,6 +102,8 @@ There are files in the `docker\connect\image\resources` folder that are used dur
 You should check for errors in the terminal. Because the process will continue creating the image even if there are errors but the image will probably not work in that case.
 
 You might experience a dialog popping up with "System cannot find the path specified" error. This error is shown while the script tries to extract the files from the self extracting archive (PReS_Connect_Setup_x86_64.exe). Unfortunately longs paths are not supported by the self extracting archive. The only way to resolve this is by making that path shorter where you cloned this git repository, for exampling placing it in c:\containerization.
+
+There is also an issue with a specific version of Forticlient that prevents the script from mounting the ISO succesfully, this typically succeeds on the first run but fails in later runs after a timeout of several minutes. IT is looking into this, it is a general issue that also occurs when you mount ISO files using the normal Windows GUI.
 
 # Kubernetes
 On Kubernetes you have different tools to do the job that docker-compose does in a local environment. The `kubernetes` folder hold these configuration files. We have so far used these only on the Azure Kubernetes Service.
