@@ -51,6 +51,8 @@ To shutdown the container press CTRL+C in the command prompt and it will do a do
 
 If you get errors about the network when you do a docker-compose up you might have to a `docker-compose down` first.
 
+If you get a *not implemented* error be sure that you type `docker-compose up` with the hypen - between docker and compose instead of a space.
+
 ## Inspecting volumes and log files
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
 
