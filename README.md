@@ -41,7 +41,13 @@ The easiest way to get everything up and running locally is to use docker compos
 
 `docker-compose up`
 
-This will pull the *connect* and *ol-mysql* container from our container registry in Azure and start hem both and will create the docker volumes. When the container is started it can take some time before Connect is fully started and the database is initialized and you can access the REST API.
+>If you get errors about the network when you do a docker-compose up you might have to do a `docker-compose down` first.
+
+>If you get a *not implemented* error be sure that you type `docker-compose up` with the hypen - between docker and compose instead of a space. If you still get the error you should check that in Docker Desktop in *Settings -> Experimental Features* the *Use Docker Compose V2* option is unchecked. 
+
+>If you get *file in use* errors it might be that port 9340 and/or 3360 are not free, you probably have to stop the MySQL and Connect service on the host first.
+
+The docker-compose up command will pull the *connect* and *ol-mysql* container from our container registry in Azure and start hem both and will create the docker volumes. When the container is started it can take some time before Connect is fully started and the database is initialized and you can access the REST API.
 
 Once Connect is started you should be able to view the cookbook by going to this URL: [http://localhost:9340/serverengine/html/cookbook/index.html](http://localhost:9340/serverengine/html/cookbook/index.html)
 
@@ -49,9 +55,6 @@ The default REST user is: `cloud-user` the default password is `nKTV3gSMv59rNOhT
 
 To shutdown the container press CTRL+C in the command prompt and it will do a docker-compose down.
 
-If you get errors about the network when you do a docker-compose up you might have to a `docker-compose down` first.
-
-If you get a *not implemented* error be sure that you type `docker-compose up` with the hypen - between docker and compose instead of a space.
 
 ## Inspecting volumes and log files
 Volumes allow you to save the state information outside of the container image. If for example one container goes down you can start another container that uses the same volumes to continue without losing data.
